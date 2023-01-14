@@ -128,7 +128,7 @@ cosignAggregateTx = (async function(address, multisigAddress) {
     txListener.newBlock();
 
     // ハッシュロックトランザクションの承認検知
-    txListener.aggregateBondedAdded(accountInfo.address)
+    txListener.aggregateBondedAdded(multisigAccountInfo.address)
     .subscribe(async aggregateTx => {
       if (!(sym.TransactionType.MOSAIC_DEFINITION === aggregateTx.innerTransactions[0].type)
           && !(sym.TransactionType.TRANSFER === aggregateTx.innerTransactions[0].type)) {
@@ -138,11 +138,15 @@ cosignAggregateTx = (async function(address, multisigAddress) {
       // トランザクションに連署してアナウンス
       window.SSS.setTransaction(aggregateTx);
       const signedAggregateTx = await window.SSS.requestSignCosignatureTransaction();
-      await new sym.TransactionHttp(networkType)
-                    .announceAggregateBondedCosignature(signedAggregateTx).toPromise();
+      await txRepo.announceAggregateBondedCosignature(signedAggregateTx).toPromise();
       // リスナーをクローズ
       txListener.close();
     });
+  }
+
+  // トランザクションリスナーがクローズされるまで待機
+  while (txListener.isOpen()) {
+    await new Promise(resolve => setTimeout(resolve, 10000));
   }
   return true;
 });
