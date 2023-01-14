@@ -102,7 +102,7 @@ createMosaicForMultisig = (async function(address, multisigAddress, supplyAmount
 });
 
 // マルチシグ連署者署名
-createMosaicForMultisig = (async function(address, multisigAddress) {
+cosignAggregateTx = (async function(address, multisigAddress) {
   // リポジトリ設定ができているか確認
   if (null === networkType) {
     return null;

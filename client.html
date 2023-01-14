@@ -83,7 +83,7 @@
       return;
     }
     document.forms.formMosaic.buttonCreate.disabled = true;
-    const retCreateMosaic = await createMosaicForMultisig(
+    const retCreateMosaic = await cosignAggregateTx(
       document.forms.formMosaic.inputAddress.value,
       document.forms.formMosaic.inputMutisigAddress.value,
     );
