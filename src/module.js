@@ -206,7 +206,7 @@ function createHashLockTx(signedTx) {
 
 // マルチシグ向けTxのアナウンス
 async function multisigTxAnnounce(signedTx, signerAddress) {
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 10000));
 
   // ハッシュロックTxを作成し、SSSで署名
   const hashLockTx = createHashLockTx(signedTx);
