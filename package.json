@@ -1,0 +1,31 @@
+{
+  "name": "mutisigsigntestusingsss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TGVRock/MutiSigSignTestUsingSSS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TGVRock/MutiSigSignTestUsingSSS/issues"
+  },
+  "homepage": "https://github.com/TGVRock/MutiSigSignTestUsingSSS#readme",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
+    "licensify": "^3.1.3",
+    "rxjs": "^7.8.0",
+    "symbol-qr-library": "^0.14.2",
+    "symbol-sdk": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0"
+  }
+}
